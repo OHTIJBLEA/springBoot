@@ -1,7 +1,7 @@
 package com.springboot.controller;
 
-import com.springboot.model.Employee;
-import com.springboot.service.EmployeeService;
+import com.springboot.model.User;
+import com.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,47 +14,47 @@ import java.util.List;
 @Controller
 public class MyController {
 
-    private final EmployeeService employeeService;
+    private final UserService userService;
 
     @Autowired
-    public MyController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
+    public MyController(UserService userService) {
+        this.userService = userService;
     }
 
 
     @GetMapping("/")
     public String showAllEmployees(Model model) {
-        List<Employee> empl = employeeService.findAll();
-        model.addAttribute("allEmp", empl);
-        return "all-employees";
+        List<User> empl = userService.findAll();
+        model.addAttribute("allUser", empl);
+        return "all-users";
     }
 
-    @GetMapping("/employee-save")
-    public String saveEmployeeForm(Employee employee) {
-        return "employee-save";
+    @GetMapping("/user-save")
+    public String saveUserForm(User user) {
+        return "user-save";
     }
 
-    @PostMapping("/employee-save")
-    public String saveEmployee(Employee employee) {
-        employeeService.saveEmployee(employee);
+    @PostMapping("/user-save")
+    public String saveUser(User user) {
+        userService.saveUser(user);
         return "redirect:/";
     }
 
-    @GetMapping("/employee-delete/{id}")
-    public String deleteEmployee(@PathVariable("id") Long id) {
-        employeeService.deleteById(id);
+    @GetMapping("/user-delete/{id}")
+    public String deleteUser(@PathVariable("id") Long id) {
+        userService.deleteById(id);
         return "redirect:/";
     }
 
-    @GetMapping("/employee-update/{id}")
-    public String updateEmployeeForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("employee", employeeService.findById(id));
-        return "employee-update";
+    @GetMapping("/user-update/{id}")
+    public String updateUserForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("user", userService.findById(id));
+        return "user-update";
     }
 
-    @PostMapping("/employee-update")
-    public String updateEmployee(Employee employee) {
-        employeeService.saveEmployee(employee);
+    @PostMapping("/user-update")
+    public String updateEmployee(User user) {
+        userService.saveUser(user);
         return "redirect:/";
     }
 }

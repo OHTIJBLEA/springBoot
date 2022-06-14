@@ -5,7 +5,7 @@
   <title>Update employee</title>
 </head>
 <body>
-<form action="#" th:action="@{/employee-update}" th:object="${employee}" method="post">
+<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
   <label for="id">ID</label>
   <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
   <br/>
@@ -18,7 +18,7 @@
   <label for="salary">Salary</label>
   <input type="text" th:field="*{salary}" id="salary" placeholder="Salary">
   <br/>
-  <input type="submit" value="Update employee">
+  <input type="submit" value="Update user">
 </form>
 </body>
 </html>

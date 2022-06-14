@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>Save employee</title>
+  <title>Save user</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/employee-save}" th:object="${employee}">
+<form th:method="POST" th:action="@{/user-save}" th:object="${user}">
   <label for="firstName">First name: </label>
   <input type="text" th:field="*{firstName}" id="firstName">
   <br>
@@ -16,7 +16,7 @@
   <input type="text" th:field="*{salary}" id="salary">
   <br>
 
-  <input type="submit" value="Create">
+  <input type="submit" value="Create user">
 </form>
 </body>
 </html>

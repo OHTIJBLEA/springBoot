@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>All employees</title>
+    <title>All users</title>
 </head>
 <body>
-<h2>Employee</h2>
+<h2>Users</h2>
 <table>
     <thead>
     <tr>
@@ -17,18 +17,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="emp : ${allEmp}">
+    <tr th:each="emp : ${allUser}">
         <td th:text="${emp.firstName}"></td>
         <td th:text="${emp.lastName}"></td>
         <td th:text="${emp.salary}"></td>
-        <td><a th:href="@{employee-update/{id}(id=${emp.id})}">Update</a>
-            <a th:href="@{employee-delete/{id}(id=${emp.id})}">Delete</a>
+        <td><a th:href="@{user-update/{id}(id=${emp.id})}">Update</a>
+            <a th:href="@{user-delete/{id}(id=${emp.id})}">Delete</a>
         </td>
     </tr>
     </tbody>
 </table>
 </div>
-<p><a href="/employee-save">Create employee</a></p>
+<p><a href="/user-save">Create user</a></p>
 </div>
 </body>
 </html>
