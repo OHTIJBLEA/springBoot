@@ -1,7 +1,7 @@
 package com.springboot.controller;
 
 import com.springboot.model.User;
-import com.springboot.service.UserService;
+import com.springboot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +15,10 @@ import java.util.List;
 @Controller
 public class MyController {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @Autowired
-    public MyController(UserService userService) {
+    public MyController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
