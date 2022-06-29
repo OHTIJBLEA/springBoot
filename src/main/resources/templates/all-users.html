@@ -17,18 +17,26 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="emp : ${allUser}">
-        <td th:text="${emp.firstName}"></td>
-        <td th:text="${emp.lastName}"></td>
-        <td th:text="${emp.salary}"></td>
-        <td><a th:href="@{user-update/{id}(id=${emp.id})}">Update</a>
-            <a th:href="@{user-delete/{id}(id=${emp.id})}">Delete</a>
+    <tr th:each="user : ${allUser}">
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.salary}"></td>
+        <td><a th:href="@{user-update/{id}(id=${user.id})}">
+            <input type="submit" value="Update"/>
+        </a>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{user-delete/{id}(id=${user.getId()})}">
+                <input type="submit" value="Delete"/>
+            </form>
         </td>
     </tr>
     </tbody>
 </table>
 </div>
-<p><a href="/user-save">Create user</a></p>
+<a th:href="@{/user-save}">
+    <input type="submit" value="Create user"/>
+</a>
 </div>
 </body>
 </html>
