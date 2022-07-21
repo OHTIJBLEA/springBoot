@@ -16,11 +16,11 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
-    public User findById(Long id) {
+    public User findUserById(Long id) {
         return userRepository.getOne(id);
     }
 
-    public List<User> findAll() {
+    public List<User> findAllUsers() {
         return userRepository.findAll();
     }
 
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService{
         return userRepository.save(user);
     }
 
-    public void deleteById(Long id) {
+    public void deleteUserById(Long id) {
         userRepository.deleteById(id);
     }
 }

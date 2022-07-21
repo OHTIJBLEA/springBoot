@@ -24,9 +24,9 @@ public class MyController {
 
 
     @GetMapping("/")
-    public String showAllEmployees(Model model) {
-        List<User> empl = userService.findAll();
-        model.addAttribute("allUser", empl);
+    public String showAllUser(Model model) {
+        List<User> user = userService.findAllUsers();
+        model.addAttribute("allUser", user);
         return "all-users";
     }
 
@@ -44,18 +44,18 @@ public class MyController {
 
     @DeleteMapping("/user-delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
-        userService.deleteById(id);
+        userService.deleteUserById(id);
         return "redirect:/";
     }
 
     @GetMapping("/user-update/{id}")
     public String updateUserForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("user", userService.findById(id));
+        model.addAttribute("user", userService.findUserById(id));
         return "user-update";
     }
 
     @PostMapping("/user-update")
-    public String updateEmployee(User user) {
+    public String updateUser(User user) {
         userService.saveUser(user);
         return "redirect:/";
     }
